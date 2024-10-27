@@ -30,10 +30,11 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
+        //使用情報へのアクセス権限を取得
         if (!hasUsageStatsPermission()) {
             startActivity(Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS))
         } else {
+            //ボタンを押した際に表示されるアプリ毎の情報を表示
             val usageTimeTextViewS: TextView = findViewById(R.id.hiddenMessageS)
             val packageNameS = "com.spotify.music"
             val usageTimeS = getAppUsageTime(packageNameS)
@@ -84,8 +85,9 @@ class MainActivity : AppCompatActivity() {
                 "Apple music の稼働時間: $hoursA 時間 $minutesA 分　(週)\nみんなの平均利用時間:\n評価\nコメント"
 
         }
-
+        //各サブスクのボタンを定義
         val button1 = findViewById<Button>(R.id.netflix)
+        //ボタンを押すとメッセージが出る
         val hiddenInfoN = findViewById<TextView>(R.id.hiddenMessageN)
 
         button1.setOnClickListener {
@@ -202,7 +204,7 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
-
+    //統計情報へのアクセス権限の有無を確認
     private fun hasUsageStatsPermission(): Boolean {
         val appOps = getSystemService(Context.APP_OPS_SERVICE) as AppOpsManager
         val mode = appOps.checkOpNoThrow(
@@ -212,7 +214,7 @@ class MainActivity : AppCompatActivity() {
         )
         return mode == AppOpsManager.MODE_ALLOWED
     }
-
+    //アプリの使用時間を取得
     private fun getAppUsageTime(packageName: String): Long {
         val calendar = Calendar.getInstance()
         calendar.add(Calendar.DAY_OF_YEAR, -7)
@@ -233,30 +235,18 @@ class MainActivity : AppCompatActivity() {
         }
         return totalTime
     }
+    //損得を計算する関数を定義する
     fun calculateLossAndProfit(Ave: Double, x: Double, a: Double): Pair<Double, Double> {
         return if (x >= Ave) {
-            val profit = (x - Ave) / Ave * a // 平均利用時間を超えた分の利益を計算
+            val profit = (x - Ave) / Ave * a /7// 平均利用時間を超えた分の利益を計算
             Pair(0.0, profit)  // 損失はゼロ、利益を返す
         } else {
             val usageRate = x / Ave
-            val loss = a * (1 - usageRate) // 平均以下の使用時間の割合分の損失を計算
+            val loss = a/7 * (1 - usageRate) // 平均以下の使用時間の割合分の損失を計算
             Pair(loss, 0.0)  // 損失と利益を返す
         }
     }
-
-    fun main() {
-        val Ave = 20.0 // 平均利用時間（例: 20時間）
-        val x = 15.0   // ユーザの実際の利用時間（例: 15時間）
-        val a = 1000.0 // サブスク費用（例: 1000円）
-
-        val (loss, profit) = calculateLossAndProfit(Ave, x, a)
-
-        if (loss > 0) {
-            println("ユーザの損失額は：${"%.2f".format(loss)}円")
-        } else {
-            println("ユーザの利益は：${"%.2f".format(profit)}円")
-        }
-    }
+    //サブスクの利用状況に応じてメッセージを出力する
     fun generateSubscriptionMessage(
         averageUsage: Double, // 平均利用時間
         userUsage: Double, // ユーザの利用時間
@@ -268,7 +258,7 @@ class MainActivity : AppCompatActivity() {
             "解約検討かも。"
         }
     }
-    //  ファイルをサーバに送信する関数
+    //  ファイルをサーバに送信する関数(未完成)
     fun uploadFileToServer(file: File, serverUrl: String) {
         val boundary = "----WebKitFormBoundary" + System.currentTimeMillis()
         val lineEnd = "\r\n"
@@ -307,7 +297,7 @@ class MainActivity : AppCompatActivity() {
         }
         connection.disconnect()
     }
-
+    //データをcsvに変換する関数(未完成)
     fun saveUsageStatsAsCSV(context: Context, startTime: Long, endTime: Long) {
         // UsageStatsManagerからデータ取得
         val usageStatsManager = context.getSystemService(Context.USAGE_STATS_SERVICE) as UsageStatsManager
