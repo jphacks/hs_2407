@@ -2,6 +2,10 @@
 
 [![IMAGE ALT TEXT HERE](https://jphacks.com/wp-content/uploads/2024/07/JPHACKS2024_ogp.jpg)](https://www.youtube.com/watch?v=DZXUkEj-CSI)
 
+
+https://github.com/user-attachments/assets/1826f858-8685-4d00-9fb8-b21b6ec7bca2
+
+
 ## 製品概要
 - 自分が利用しているサブスクリプションの利用時間を可視化し、活用状況を確認できる
 - 未契約のサブスクに関しても、他ユーザの利用データからその評価や人気度を確認できる
@@ -46,5 +50,3 @@
 
 ### 独自技術
 #### ハッカソンで開発した独自機能・技術
-* 独自で開発したものの内容をこちらに記載してください
-* 特に力を入れた部分をファイルリンク、またはcommit_idを記載してください。
