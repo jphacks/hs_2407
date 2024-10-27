@@ -4,8 +4,8 @@
 
 
 
+https://github.com/user-attachments/assets/3ebd6ce3-2d5b-4ff8-b81a-f17f0cdf390f
 
-https://github.com/user-attachments/assets/beb48dff-41da-4db8-959c-2a88c5533d08
 
 
 
@@ -44,7 +44,7 @@ https://github.com/user-attachments/assets/beb48dff-41da-4db8-959c-2a88c5533d08
 * 
 
 #### フレームワーク・ライブラリ・モジュール
-* kotolin達
+* kotolin,java
 * 
 
 #### デバイス
