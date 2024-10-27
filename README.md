@@ -3,7 +3,10 @@
 [![IMAGE ALT TEXT HERE](https://jphacks.com/wp-content/uploads/2024/07/JPHACKS2024_ogp.jpg)](https://www.youtube.com/watch?v=DZXUkEj-CSI)
 
 
-https://github.com/user-attachments/assets/1826f858-8685-4d00-9fb8-b21b6ec7bca2
+
+
+https://github.com/user-attachments/assets/beb48dff-41da-4db8-959c-2a88c5533d08
+
 
 
 ## 製品概要
